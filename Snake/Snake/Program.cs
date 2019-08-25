@@ -10,12 +10,23 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            var point1 = new Point(1, 3, '*');
-            point1.Draw();
-            var point2 = new Point(4, 5, '#');
-            point2.Draw();
-            var v = new VerticalLine(4, 8, 4, 'v');
-            v.Draw();
+            Console.SetWindowSize(1, 1);
+            Console.SetBufferSize(80, 25);
+            Console.SetWindowSize(80, 25);
+
+            //Отрисовка рамки
+            var upLine = new HorizontalLine(0, 78, 0, '+');
+            var downLine = new HorizontalLine(0, 78, 24, '+');
+            var liftLine = new VerticalLine(0, 24, 0, '+');
+            var rightLine = new VerticalLine(0, 24, 78, '+');
+            upLine.Draw();
+            downLine.Draw();
+            liftLine.Draw();
+            rightLine.Draw();
+
+            //Отрисовка точек
+            var p = new Point(4,5, '*');
+            var snake = new Snake(p, 4, Direction.RIGTH);
 
             Console.ReadLine();
         }

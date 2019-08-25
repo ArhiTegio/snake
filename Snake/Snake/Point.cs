@@ -21,6 +21,13 @@ namespace Snake
             Symbol = symbol;
         }
 
+        public Point(Point p)
+        {
+            X = p.x;
+            Y = p.y;
+            Symbol = p.symbol;
+        }
+
         public int X { get => x; set => x = value; }
         public int Y { get => y; set => y = value; }
         public char Symbol { get => symbol; set => symbol = value; }
@@ -29,6 +36,26 @@ namespace Snake
         {
             Console.SetCursorPosition(this.X, this.Y);
             Console.Write(this.Symbol);
+        }
+
+        public void Move(int offset, Direction direction)
+        {
+            if (direction == Direction.RIGTH)
+            {
+                x = x + offset;
+            }
+            else if (direction == Direction.LEFT)
+            {
+                x = x - offset;
+            }
+            else if (direction == Direction.DOWN)
+            {
+                y = y + offset;
+            }
+            else
+            {
+                y = y - offset;
+            }
         }
     }
 }
