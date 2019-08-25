@@ -15,6 +15,9 @@ namespace Snake
             Console.SetBufferSize(80, 25);
             Console.SetWindowSize(80, 25);
 
+            var walls = new Walls(80, 25);
+            walls.Draw();
+
             //Отрисовка рамки
             var upLine = new HorizontalLine(0, 78, 0, '+');
             var downLine = new HorizontalLine(0, 78, 24, '+');
@@ -36,6 +39,11 @@ namespace Snake
 
             while(true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+
                 if(snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
