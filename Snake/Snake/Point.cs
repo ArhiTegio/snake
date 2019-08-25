@@ -32,6 +32,12 @@ namespace Snake
         public int Y { get => y; set => y = value; }
         public char Symbol { get => symbol; set => symbol = value; }
 
+        internal void Clear()
+        {
+            Symbol = ' ';
+            Draw();
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(this.X, this.Y);
@@ -56,6 +62,11 @@ namespace Snake
             {
                 y = y - offset;
             }
+        }
+
+        internal bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
         }
     }
 }
