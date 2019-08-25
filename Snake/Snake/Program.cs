@@ -14,6 +14,8 @@ namespace Snake
             point1.Draw();
             var point2 = new Point(4, 5, '#');
             point2.Draw();
+            var v = new VerticalLine(4, 8, 4, 'v');
+            v.Draw();
 
             Console.ReadLine();
         }
